@@ -34,16 +34,16 @@ $ruta ="/img/".$fnombre.$ext;
 $archivo = copy($_FILES['archivo']['tmp_name'], "./img/".$fnombre.$ext);
 if($_REQUEST['tipo']=='dir'){
 	if($archivo){
-	$sql = "INSERT INTO imgarchivo (id,rutas,nombre) VALUES
+	$sql = "INSERT INTO imgarchivo (id,ruta,nombre) VALUES
 			(null,'".$ruta."','".$fnombre."');";
 	if(consultaA($con,$sql) != 0){
 		print "Imagen almacenada";
-		print "<a href='galeria.php'>ver archivos</a>";
+		
 	}else{
 		unlink(".".$ruta);
 		print "algun error ha ocurrido";
 	}
-	
+	print "<a href='galeria.php'>ver archivos</a>";
 }
 
 }else{
